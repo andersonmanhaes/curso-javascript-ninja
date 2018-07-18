@@ -122,10 +122,11 @@ carro.entraPessoas = function(numPessoas) {
     return 'O carro já está lotado!';
   } else if ((numPessoas + carro.quantidadePessoas) > carro.assentos) {
     return 'Só cabem mais ' + (carro.assentos - carro.quantidadePessoas) + ' pessoas!';
-  } else if ((carro.assentos - carro.quantidadePessoas) === 1) {
+  } else if ((carro.assentos - carro.quantidadePessoas) === 1 && numPessoas != 1) {
     return 'Só cabe mais uma pessoa!';
+  } else {
+     carro.quantidadePessoas += numPessoas;
   }
-  carro.quantidadePessoas += numPessoas;
   return 'Já temos ' + carro.quantidadePessoas + ' pessoas no carro!';
 }
 
@@ -161,14 +162,15 @@ carro.entraPessoas(2); //Já temos 2 pessoas no carro!
 carro.entraPessoas(4); //Só cabem mais 3 pessoas!
 
 // Faça o carro encher.
-?
+carro.entraPessoas(3); //Já temos 5 pessoas no carro!
+carro.entraPessoas(3); //O carro já está lotado!
 
 // Tire 4 pessoas do carro.
-?
+carro.quantidadePessoas -= 4; // 1
 
 // Adicione 10 pessoas no carro.
-?
+carro.entraPessoas(10); //Só cabem mais 4 pessoas!
 
 // Quantas pessoas temos no carro?
-?
+1
 ```
